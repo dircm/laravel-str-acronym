@@ -25,6 +25,11 @@ class StrServiceProvider extends ServiceProvider
                 }
             }
 
+            // Trim the acronym if limit has been provided
+            if ($limit !== null) {
+                $acronym = mb_substr($acronym, 0, $limit);
+            }
+
             return $acronym;
         });
 
