@@ -44,6 +44,16 @@ $acronym = Str::of('hello world')->headline()->acronym(); // Returns 'H.W.'
 
 ```
 
+To limit the length of the generated acronym letters, you may add a third 'limit' parameter:
+
+```php
+use Illuminate\Support\Str;
+
+$acronym = Str::acronym('Hello World', '.', 3); // Returns 'H.W'
+$acronym = Str::of('hello world')->headline()->acronym(limit: 1); // Returns 'H'
+
+```
+
 ## Testing
 
 This package is using PhpUnit to unit test the macros. A simple alias has been created with composer to run the tests. 
