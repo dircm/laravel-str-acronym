@@ -12,7 +12,7 @@ class StrServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        Str::macro('acronym', function ($string, $delimiter = '') {
+        Str::macro('acronym', function ($string, $delimiter = '', int $limit = null) {
             if (empty($string)) {
                 return '';
             }
@@ -28,8 +28,8 @@ class StrServiceProvider extends ServiceProvider
             return $acronym;
         });
 
-        Stringable::macro('acronym', function (string $delimiter = '') {
-            return new Stringable (Str::acronym($this->value, $delimiter));
+        Stringable::macro('acronym', function (string $delimiter = '', int $limit = null) {
+            return new Stringable (Str::acronym($this->value, $delimiter, $limit));
         });
     }
 }
