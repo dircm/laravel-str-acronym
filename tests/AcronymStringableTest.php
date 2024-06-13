@@ -23,4 +23,10 @@ class AcronymStringableTest extends TestCase
         $this->assertSame('lidsa', (string) $this->stringable('lorem ipsum dolor sit amet')->acronym());
         $this->assertSame('l.i.d.s.a', (string) $this->stringable('lorem ipsum dolor sit amet')->acronym('.')->rtrim('.'));
     }
+
+    public function testAcronymWithLimit()
+    {
+        $this->assertSame('lid', (string) $this->stringable('lorem ipsum dolor sit amet')->acronym('', 3));
+        $this->assertSame('l.i', (string) $this->stringable('lorem ipsum dolor sit amet')->acronym('.', 3)->rtrim('.'));
+    }
 }
